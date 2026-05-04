@@ -20,8 +20,9 @@ function ScrollToTop() {
 function RevealObserver() {
   const { pathname } = useLocation()
   useEffect(() => {
+    let observer = null
     const timeout = setTimeout(() => {
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -33,9 +34,11 @@ function RevealObserver() {
         { threshold: 0.08 }
       )
       document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => observer.observe(el))
-      return () => observer.disconnect()
     }, 100)
-    return () => clearTimeout(timeout)
+    return () => {
+      clearTimeout(timeout)
+      observer?.disconnect()
+    }
   }, [pathname])
   return null
 }
