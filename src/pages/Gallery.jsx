@@ -85,7 +85,7 @@ export default function Gallery() {
                   style={{
                     marginLeft: '6px',
                     fontSize: '0.72rem',
-                    background: active === f.key ? 'rgba(10,26,59,0.15)' : 'var(--cream)',
+                    background: active === f.key ? 'rgba(13, 61, 38, 0.14)' : 'var(--cream)',
                     padding: '1px 7px',
                     borderRadius: '100px',
                   }}

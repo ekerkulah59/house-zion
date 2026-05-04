@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Video, Clock, Calendar, Music, BookOpen, Heart, Users } from 'lucide-react'
+import hero1 from '../assets/hero1.jpeg'
+import hero2 from '../assets/hero2.jpeg'
 
 export default function PrayerSchedule() {
   return (
@@ -35,7 +37,18 @@ export default function PrayerSchedule() {
           <div className="prayer-cards-grid">
             {/* Morning Prayer */}
             <div className="prayer-card reveal">
-              <span className="prayer-icon">🌅</span>
+              <div className="prayer-card-media">
+                <img
+                  src={hero1}
+                  alt="Morning Flame — daily morning prayer with House of Zion on Zoom"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="prayer-card-body">
+              
               <h2>Morning Prayer</h2>
               <p style={{ color: 'var(--muted-light)', fontSize: '0.95rem', lineHeight: '1.7' }}>
                 Begin your day in God's presence. A focused 30-minute session to centre
@@ -72,11 +85,23 @@ export default function PrayerSchedule() {
                   Get the Zoom Link
                 </Link>
               </div>
+              </div>
             </div>
 
             {/* Evening Prayer */}
             <div className="prayer-card reveal reveal-delay-2">
-              <span className="prayer-icon">🌙</span>
+              <div className="prayer-card-media">
+                <img
+                  src={hero2}
+                  alt="Online fellowship — evening worship, praise, and preaching with House of Zion on Zoom"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="prayer-card-body">
+              
               <h2>Evening Prayer</h2>
               <p style={{ color: 'var(--muted-light)', fontSize: '0.95rem', lineHeight: '1.7' }}>
                 A rich full-hour session to close the day in worship. We sing, pray, receive
@@ -127,6 +152,7 @@ export default function PrayerSchedule() {
                   <Video size={15} />
                   Get the Zoom Link
                 </Link>
+              </div>
               </div>
             </div>
           </div>
@@ -194,7 +220,7 @@ export default function PrayerSchedule() {
                   <p>Held in the second half of the year. Another powerful season of prayer, worship, and the Word with invited ministers.</p>
                 </div>
               </div>
-              <div style={{ marginTop: '8px', padding: '16px 20px', background: 'var(--gold-dim)', border: '1px solid rgba(201,168,76,0.2)', borderRadius: 'var(--radius-md)' }} className="reveal reveal-delay-2">
+              <div style={{ marginTop: '8px', padding: '16px 20px', background: 'var(--gold-dim)', border: '1px solid var(--gold-border)', borderRadius: 'var(--radius-md)' }} className="reveal reveal-delay-2">
                 <p style={{ fontSize: '0.88rem', color: 'var(--navy)', lineHeight: '1.7' }}>
                   📲 <strong>Stay updated:</strong> Fasting dates and guest preacher announcements are shared
                   in our WeChat group. <Link to="/join" style={{ color: 'var(--navy)', fontWeight: 600, textDecoration: 'underline' }}>Join us to receive notifications →</Link>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import logoUrl from '../assets/logo.jpeg'
 
 const navLinks = [
   { to: '/',                label: 'Home',           end: true },
@@ -41,12 +42,14 @@ export default function Navbar() {
       <nav className={navClass} role="navigation" aria-label="Main navigation">
         {/* Logo */}
         <Link to="/" className="nav-logo" aria-label="House of Zion — go to homepage">
-          <svg className="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-            <circle cx="18" cy="18" r="18" fill="rgba(201,168,76,0.15)" />
-            <rect x="16.5" y="6" width="3" height="20" rx="1.5" fill="#C9A84C" />
-            <rect x="9"    y="13" width="18" height="3" rx="1.5" fill="#C9A84C" />
-            <circle cx="18" cy="18" r="10" stroke="#C9A84C" strokeWidth="1" strokeOpacity="0.3" fill="none" />
-          </svg>
+          <img
+            className="nav-logo-img"
+            src={logoUrl}
+            alt=""
+            width={44}
+            height={44}
+            decoding="async"
+          />
           <span className="nav-logo-wordmark">
             House of Zion
             <span>Christian Prayer Group</span>

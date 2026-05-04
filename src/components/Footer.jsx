@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { MessageCircle, Mail, Clock, MapPin } from 'lucide-react'
+import logoUrl from '../assets/logo.jpeg'
 
 export default function Footer() {
   return (
@@ -10,11 +11,14 @@ export default function Footer() {
           {/* Col 1 — Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-              <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-                <circle cx="18" cy="18" r="18" fill="rgba(201,168,76,0.12)" />
-                <rect x="16.5" y="6" width="3" height="20" rx="1.5" fill="#C9A84C" />
-                <rect x="9" y="13" width="18" height="3" rx="1.5" fill="#C9A84C" />
-              </svg>
+              <img
+                className="footer-logo-img"
+                src={logoUrl}
+                alt=""
+                width={40}
+                height={40}
+                decoding="async"
+              />
               <p className="footer-logo-wordmark">House of Zion</p>
             </div>
             <p className="footer-tagline">"Where the Nations Pray as One"</p>

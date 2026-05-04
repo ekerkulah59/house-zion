@@ -1,11 +1,37 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, Video, Users, Heart, Globe } from 'lucide-react'
+import hero1 from '../assets/hero1.jpeg'
+import hero2 from '../assets/hero2.jpeg'
+
+const HERO_SLIDES = [hero1, hero2]
 
 export default function Home() {
+  const [heroSlide, setHeroSlide] = useState(0)
+
+  useEffect(() => {
+    const id = window.setInterval(
+      () => setHeroSlide((i) => (i + 1) % HERO_SLIDES.length),
+      6500
+    )
+    return () => window.clearInterval(id)
+  }, [])
+
   return (
     <>
       {/* ========== HERO ========== */}
       <section className="hero" aria-label="Hero">
+        <div className="hero-slides" aria-hidden="true">
+          {HERO_SLIDES.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              className={`hero-slide-img${i === heroSlide ? ' is-active' : ''}`}
+              decoding="async"
+            />
+          ))}
+        </div>
         <div className="hero-bg" aria-hidden="true" />
 
         {/* Animated cross glow */}
@@ -46,6 +72,24 @@ export default function Home() {
           </div>
         </div>
 
+        <div
+          className="hero-slide-dots"
+          role="tablist"
+          aria-label="Hero background slides"
+        >
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-selected={i === heroSlide}
+              aria-label={`Show slide ${i + 1}`}
+              className={`hero-slide-dot${i === heroSlide ? ' is-active' : ''}`}
+              onClick={() => setHeroSlide(i)}
+            />
+          ))}
+        </div>
+
         {/* Scroll indicator */}
         <div className="hero-scroll" aria-hidden="true">
           <ChevronDown size={18} />
@@ -70,6 +114,17 @@ export default function Home() {
           <div className="schedule-cards">
             {/* Morning */}
             <div className="schedule-card reveal">
+              <div className="schedule-card-media">
+                <img
+                  src={hero1}
+                  alt="Morning Flame — daily morning prayer with House of Zion on Zoom"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="schedule-card-body">
               <span className="schedule-card-icon">🌅</span>
               <h3>Morning Prayer</h3>
               <p>Start your day anchored in faith and the presence of God.</p>
@@ -82,10 +137,22 @@ export default function Home() {
                 <span className="tag tag-gold">Daily</span>
                 <span className="tag tag-gold">Zoom</span>
               </div>
+              </div>
             </div>
 
             {/* Evening */}
             <div className="schedule-card reveal reveal-delay-2">
+              <div className="schedule-card-media">
+                <img
+                  src={hero2}
+                  alt="Online fellowship — evening worship, praise, and preaching with House of Zion on Zoom"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="schedule-card-body">
               <span className="schedule-card-icon">🌙</span>
               <h3>Evening Prayer</h3>
               <p>A full hour of worship, praise, intercession, and the Word of God.</p>
@@ -103,6 +170,7 @@ export default function Home() {
                 <span className="tag tag-gold">🙌 Worship</span>
                 <span className="tag tag-gold">🙏 Prayer</span>
                 <span className="tag tag-gold">📖 Bible Teaching</span>
+              </div>
               </div>
             </div>
           </div>

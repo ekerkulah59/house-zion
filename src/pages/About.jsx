@@ -1,5 +1,32 @@
 import { Link } from 'react-router-dom'
 import { Globe, Heart, BookOpen, Users } from 'lucide-react'
+import membersFamilyTree from '../assets/members.jpeg'
+
+/** First names as shown on the community family tree graphic */
+const familyTreeMembers = [
+  'Alicia',
+  'Angelina',
+  'Best',
+  'Darius',
+  'Elijah',
+  'Emmanuel',
+  'Esther',
+  'Fifi',
+  'Florence',
+  'Glorious',
+  'Gold',
+  'Henry',
+  'Joella',
+  'Leela',
+  'Mclain',
+  'Mila',
+  'Praise',
+  'Praisicia',
+  'Rose',
+  'Solomon',
+  'Sunflower',
+  'Vincent',
+]
 
 const nations = [
   {
@@ -150,6 +177,49 @@ export default function About() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== FAMILY TREE (no scroll-reveal on image — stays visible without IO) ========== */}
+      <section className="about-family-tree" aria-labelledby="about-family-tree-heading">
+        <div className="container">
+          <div style={{ textAlign: 'center' }}>
+            <span className="eyebrow eyebrow-light" style={{ display: 'block' }}>
+              Our Community
+            </span>
+            <h2 id="about-family-tree-heading" className="section-heading section-heading-light">
+              House of Zion Family Tree
+            </h2>
+            <p className="section-subtext section-subtext-light" style={{ margin: '0 auto', maxWidth: 560 }}>
+              A few of the faces that make up our prayer family — brothers and sisters in Christ
+              across countries and time zones, rooted together in worship and the Word.
+            </p>
+          </div>
+
+          <figure className="about-family-tree-figure">
+            <img
+              src={membersFamilyTree}
+              alt="Illustrated family tree titled House of Zion with member portraits and name labels on the branches"
+              width={905}
+              height={1280}
+              loading="eager"
+              decoding="async"
+            />
+            <figcaption className="about-family-tree-caption">
+              Names and portraits as they appear on our community family tree.
+            </figcaption>
+          </figure>
+
+          <div className="about-family-names">
+            <p className="about-family-names-label">Members on this tree</p>
+            <ul className="about-family-names-list">
+              {familyTreeMembers.map((name) => (
+                <li key={name}>
+                  <span className="about-family-name-chip">{name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
