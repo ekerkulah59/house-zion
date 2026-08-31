@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Heart, Users, Package } from 'lucide-react'
-import { outreachGalleryPhotos } from '../outreachGalleryPhotos'
+import { outreachTripPhotos } from '../outreachGalleryPhotos'
 
 const countries = [
   {
@@ -199,7 +199,7 @@ export default function Outreach() {
           </div>
 
           <div className="outreach-photo-grid outreach-photo-grid-real">
-            {outreachGalleryPhotos.map((photo, i) => (
+            {outreachTripPhotos.map((photo, i) => (
               <figure
                 key={photo.id}
                 className={`outreach-photo-card reveal reveal-delay-${(i % 3) + 1}`}

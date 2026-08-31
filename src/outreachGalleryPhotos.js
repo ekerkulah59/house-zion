@@ -9,9 +9,13 @@ import imgGallay from './assets/gallay.jpeg'
 import imgGlaaf from './assets/glaaf.jpeg'
 import imgGlallay from './assets/glallay.jpeg'
 import imgImafe from './assets/imafe.jpeg'
+import imgHoz from './assets/hoz.jpeg'
+import imgHozee from './assets/hozee.jpeg'
+import imgHozw from './assets/hozw.jpeg'
+import imgMomm from './assets/momm.jpeg'
 
 /**
- * Outreach photography from annual trips (Uganda & Liberia).
+ * Community photography — outreach trips (Uganda & Liberia) and gatherings in China.
  * `country` drives gallery filters on /gallery.
  */
 export const outreachGalleryPhotos = [
@@ -81,4 +85,32 @@ export const outreachGalleryPhotos = [
     country: 'liberia',
     alt: 'Sharing meals and hope during the annual outreach',
   },
+  {
+    id: 'hoz',
+    src: imgHoz,
+    country: 'china',
+    alt: 'House of Zion gathering in China — the community seated in prayer and reflection',
+  },
+  {
+    id: 'hozee',
+    src: imgHozee,
+    country: 'china',
+    alt: 'Teaching on spiritual renewal during a House of Zion gathering',
+  },
+  {
+    id: 'hozw',
+    src: imgHozw,
+    country: 'china',
+    alt: 'A House of Zion minister sharing the Word, with worship on guitar beside the podium',
+  },
+  {
+    id: 'momm',
+    src: imgMomm,
+    country: 'china',
+    alt: 'Teaching on reconciliation through the Cross during a House of Zion gathering',
+  },
 ]
+
+export const outreachTripPhotos = outreachGalleryPhotos.filter(
+  (p) => p.country === 'uganda' || p.country === 'liberia'
+)
