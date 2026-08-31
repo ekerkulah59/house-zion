@@ -7,11 +7,13 @@ const filters = [
   { key: 'all', label: 'All Photos' },
   { key: 'uganda', label: 'Uganda' },
   { key: 'liberia', label: 'Liberia' },
+  { key: 'china', label: 'China' },
 ]
 
 const countryLabels = {
   uganda: 'Uganda',
   liberia: 'Liberia',
+  china: 'China',
 }
 
 export default function Gallery() {
@@ -60,10 +62,10 @@ export default function Gallery() {
         <div className="container">
           <div className="page-hero-content">
             <span className="page-hero-eyebrow">Our Gallery</span>
-            <h1>Outreach in Uganda &amp; Liberia</h1>
+            <h1>Outreach, Gatherings &amp; Fellowship</h1>
             <p>
-              Real moments from our annual orphanage food drives — faith, community, and love
-              across the places we come from.
+              Real moments from our annual orphanage food drives and gatherings in China —
+              faith, community, and love across the places we come from.
             </p>
           </div>
         </div>
@@ -103,7 +105,7 @@ export default function Gallery() {
               <button
                 key={item.id}
                 type="button"
-                className="gallery-photo-card reveal"
+                className="gallery-photo-card"
                 style={{ '--i': i }}
                 onClick={() => openAt(i)}
                 aria-label={`Open photo: ${item.alt}`}
